@@ -1,0 +1,32 @@
+.container {
+  /* display: flex; */
+  height: 50px;
+  justify-content: center;
+
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.items {
+  display: inline-flex;
+  padding-top: 14px;
+  max-width: 50px;
+
+  color: rgb(121, 116, 116);
+}
+.items .item {
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
+  /* display: none; */
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    overflow-x: auto;
+  }
+}

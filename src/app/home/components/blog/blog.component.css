@@ -1,0 +1,51 @@
+.wrapper {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  margin: 0 20px;
+}
+.card img {
+  height: 122px;
+}
+
+.submitBtn {
+  padding-top: 20px;
+  display: flex;
+}
+.btn {
+  margin: 0 auto;
+  width: 95px;
+  height: 28px;
+  border-radius: 15px;
+  border: 1px #1ea2d1 solid;
+  color: #063970;
+  background-color: #fff;
+}
+.card img p {
+  padding: 0 40px 0 75px;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 620px) {
+  .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #blog {
+    display: none;
+  }
+  .card img {
+    width: 100%;
+  }
+  .btn {
+    background-color: #1ea2d1;
+    color: white;
+  }
+}

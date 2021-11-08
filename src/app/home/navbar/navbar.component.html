@@ -1,0 +1,68 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <ul class="items">
+        <li>
+          <a class="item" href="#">Home</a>
+        </li>
+
+        <li>
+          <a class="item" href="#">Products</a>
+        </li>
+        <li>
+          <a class="item" href="#">Blog</a>
+        </li>
+        <li>
+          <a class="item" href="#">Contact</a>
+        </li>
+      </ul>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <ul class="navbar-nav">
+        <li>
+          <a class="item" href="#">Home</a>
+        </li>
+
+        <li>
+          <a class="item" href="#">Products</a>
+        </li>
+
+        <li>
+          <img
+            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBQSFBUSEhQUEhgZEhIREhgaEhgUGBoYGBgZGRgaGBgbIS0kGx0rIxgYJTclKi4xNDQ0GiM6PzozPi0zNDEBCwsLEA8QHRISHTMhJCMzMzMxMzMzMzMzMzEzMzMxMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzEzMzM+Mz4zMz4zM//AABEIAO0A1QMBIgACEQEDEQH/xAAbAAEAAQUBAAAAAAAAAAAAAAAABQECAwQGB//EADsQAAIBAgMGAwYFAgUFAAAAAAABAgMRBAUhEjFBUWFxBiKBEzJSkaHRFEJyscGC4QczYsLwQ1OS0vH/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAwQFAgEG/8QAMREAAgIBBAAEAwcEAwAAAAAAAAECAxEEEiExE0FRYQUisTJCcYGR8PFSodHhBhQj/9oADAMBAAIRAxEAPwD14AAAAAAAAAqDWxeMjT36vgvvyPJSUVlhvBslCDo5rJVPO/K9GuXJonUyOq6Ni4PFJPooACU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVsHLZvmzqSdOm7QTs38T+xFdaq45ZzKSiiSx+cJXhT1e5y4LtzIZ1G3du7e9s1YyM0WZNl0rHlkDk2JvUnMlx117OT1XuP+DnNvV9zNTm001o1qjyq1wlk8jLDydqUNTLsWqsL/mWkl/Jtm1GSksosp5AAOj0AAAAAAAAAAAAAAAAAAAAAAAAFQWVKkYK8morqAaWeYn2dGclo3aEe8tP2ucTCR0HibH06lLZg22qkXusuJzMJGVq5KUuHkqWyzLg3oSMu1oakJGSc7RZTOUykJGaMjThI2ISPWjxErlWI2KkeTey/U6o4mg/NG3xK3zO2NLQybi0WanwygKlC8SgAAAAAAAAAAAAAAAAAAAAFS2c1FXk0lzbsXGHFUfaQcfl34Hkm0uARuLzlLSmr/6nu9EQmIxEpu85Nsuqw1aas07M1p03wZi23Tn2VpSbLMR5otEXF20Nyo2t6NSs9b/M4iQSM0JFcRPy+phhItxE9y7s9xyM8GSEjYhI0YSJHLsHUrS2YLu+C7sbW3hCPPCJTI6DqVIvhHzv03fU641MvwUaMFCOr3yfNm2a2nq8OGH2y7XHaigAJzsAAAAAAAAAAAAAAAAAAAAAFShUA5/PsPsyVRbpaPuQspnaYrDqpBwlua+T4M4nMMLUoytNO3CXBruZWroaluXTK9qw8mOdQ1asYvgWzqmTDYSpV9yOi3yekV3bK8YN9EGcmo1ZmCvPzehPUcvjK9OnF4idmnPWFOD5p73Yksu8IwTc8RLbfCMW1FLq97LNdEpPgeFJ8IgMpwlOck6lRQjf3Y3nOXaMbtHd4GUIRUKdOpGK5x2fntO5g/FYfDrZpxiukIr6s0cRns37qUF82Tqyqnz5J4JQ8zok/QqcXWx9SXvTk/W30RqyrdTh69eUf7nTuR3wOFo4qrHWm5+l2vkS+E8QyWlenJL40n9UTV6qMu1g9VqZ0ZQx0K8akVKElJPimZGy0SgqYJYumpKDqQUmrpOSTa5rmZw0E0ygKlAAAAAAAAAAAAAAAACpbOCkrSSa5NXLikpJK73IAj6+X4amnOVKCt0W/p1NeODlXttr2dNe7COjfWVjdjS237SpolrGL3Jc31IrNc93wpPo5/8Ar9ypY4pZlwvT1IpYXZI4jGUsNHYildboR/kgcZmtSpveyvhWi9eZFTrX1bubeX5dUr6xWzHjJ6L05lOd1lr2x4XoiJzcuEYZVTawuW1auqjsrnLRenM6LAZPSpWdtuXxS1+S4EkTV6Hzm/0O41epB4bw7Ba1JSm+S8q+5J0cBSh7tOK9Lv5s2JNLVuxqVcxpx3Pa7fctqFVS6SJdsUbaSW5JBq+/UiZ5q/yxS76mCeY1Pit6I4eqrR5uRJYmEacZVIRUZdNE+6W8gsRjKlT3pO3JaIyV8bOUXFyunvNSO8v6OUZw3JeZn6ux7lFdHL+Oat69OK/JQivVyk/sR2X+IcVQtsVZW+GXnj8mV8SVdvE1Hyagv6UkRTRtQrXhpNZKErGptp4O/wAr/wAQt0cTTt/rhu9Yv7nY5dmlHEx2qNSM+aT8y7x3o8NL6FaUJKcJShJaqUXZr1RWt0MJcx4LlWtmuJcnvhQ85yPx5OFoYuPtI7tuK8y/UuJ32AxtOvBVKU1OL3Nfs1wfQzraJ1/aRo1XQs+ybAKlCElAAAAAAAAAKmOdt8tIrV8jIcf4ozm7dCm9F/mNcXy7Eds1COWcTkorLKZ3nbqt06btBb3xl/YhFNyajFNtuyS1bMNCE6s1CCcpN2SX88kd3kuSww62pWnUa1ly6RM+Nc7pZl+/YrRUrGaWU+HbWqV9XvUOC/Vz7HRxSSslZcEVNHG5lCnovNLlwXdl5RhTH0LSSgjcnJRV5NJEbiM2S0pq/V/YiMRi5VHeTvyXBehgdQp26xviPBw7DbrYmU9ZSbMLmYHMU1KbtCLk+iuVHJtke4yuoWOZIUMlqS1m1DpvZv0slpL3tqXrb9iaOmtl5Y/E9UJM551BKoopyfBNmxncYU6ihTSjaKcu7/tYgs4xGzSklvl5V6/8Z9FoqHCqMWZl8sWP2OTxM9uUpPjJy+bMDM00Y2bRTZjZQuZaDuJka0PSvAuJp0sHHabvKpOdrcL2X7Hmsdx6DltH2dKnDlCN+9rswPj+tlp6Y7e5PzL+hWZt+iOnjndLaUJPYb3OW5+vAkk76rU82zGe1N9NDPleeVMO0rucOMW936XwMfT6yTivELP/AG0puL6PQyhrZfj6deG3SldcVxT5NG0aKafKLaeeUUAB6egqUKgEZ4hzD8PRlNe8/JD9T4+iu/Q81g5VJqMU5Sk7JcW2dN/iHXadGnwtOXroja8E5PsQ/E1F55ryJ/lhz7v9ipZF2WY9ClYnZbtXkS+QZPHDQ1tKcl55f7V0JVu2r0EmkrvRb2ctnGce0bhTdoLe/i/sSWWRqj9EWm1BG5mWcXvCk9Nzlz7ELKoacqxZKsZNlkrHllaU8m26xdQjOo9mEXJ9P5NrKsmnVtOpeEN6+KXZcF1Oqw2GhTjs04qK+r7viWKdJKfMuEdwg3yROCyFK0qru/hW71fEmKVKMFaKUV0RkLKlSME5Sailvbdl82aNdUK18qJ1FR6Lw2c3mPi6jTuqadV9NI/N7zm8R4qxNaWzFxpxd7qKV7ctpnsZqUlFctkNmphBept4/Fe0q1J85O3ZaL9jns5rbUlHgiQpz0u+CuyDrz2pOT4u59BXHHXkYO/f8z8zVkjDIzyMMic5LGWsuZaz06ibOXU9upCPOSv2WrO/lWSi3yX/AMOKyKPnc+Ssu7OlrT8iXPzPtwPi/wDkMvF1MYf0r69mppnsqcvU05O+pZNGRlGUEVWMvzCeGqKpDtKPCS5M9JwGMhXpxqU3dSXqnxT6nl9WJOeCcZONZ0UnKE05P/S1x/gvaa3D2vzLmmtw9vqd4ADQNAFShUA43xVgniMbhaXCUZOX6Yu8vojsIQUUklZJJJdEalTCJ4iFXjGlUgvWUH9zB4gzH8PSck/NLyQ7vj6EfEcyZEkobpMiPE2cXbo03ovffN/Cc1KsaUq99W7vezG6t9FrwRmzzOWWUp25eWb3tG2ktW9Ejrsi8P7NqldXlvjDgusubHhnIPZJVqqvNq8Yv8if+46UtUadL5pFmqr70gGY69aNOLlJ2S/5ocxmuazqXjG8IcuL7v8AgmuvjWueyeU1HskM08QQp3jTXtJc/wAq+5xuZY+pWd6k2+S3RXZGWpE06iM6d8p9lOyxy7NGojLhadlfn+xWULmxTit70jFXfY1/hVOZOx9Lr8TM1UvurzMeMqbMNnjLX+n+5FyNjE1XOTk/TouCNaR9AlgiSwsGKRhmZpGCRIcljLWXMpFank5KKcn0jqKyyYyqGijze0yZk7mllNBqO2973djdZ8BqbPEtlN+ZpS+yomNljMkixnCIJGKojsPBeX7FOVaS1n5YfpT3+r/Y5zLsE69SNNcXeT5RW9no9KmoxUIqyilFLoi/o4Ze4t6OGXuLgAaBoAqUKgEbgMXt1q9P4JQt2cVf6nG+O8a5V1TT0hBf+UtX9LEhgcbsZjUTdlOpKm+/5fql8znPGqccZUvx2JLs4oa2val74M6Vu6p/i0Rbmdh4IyXbf4qovKnaknxfGXZcDj8rwrxFanRj+eaT6LfJ/JM9mw9CNOEacFaMYqMV0RVqry8saWvc9z8jKYcRXjTi5S9OpklNRTb0SV2c9jsQ6krvcvdR3fd4a9y/J4NfHYuVR3e7guCI+aNmSLadCU5KMVdsyJZlL1bKz5I+cG3ZK7eiJfLvDLl5672Vv2Fv9XwJzLcqhS8z80+L5dER3ibNthexpvzS0m1wXJdWael0Lk1u7+n4nk1GqG+ZA51iITmqVCKjCD2VZe9Li3zIXG1V/lx3J3k+cvsjJiKvs04p+d6SfwrkupHSZ9PVWoxSXSMWUnKTlLt/29iyTMcmXyZhmyZAskzDIyTZikzo5KM3sqwTqSu/dWsvsYMHhJVZqMe7fJHWUKEacVCO5fXqYPxzW+HDwY9vv2Rb09efmYtbQsZkkY2fKosSLJFjMjJvw1lPtZKrUXki/Kvikv4RPVBzltRzGDnLCJnw1lnsae3JeeaTfSPBE0ChtwgoxUUasIKKwgADo6BUoVAPMfEV4YurbR+0U0+6TJHxHhPx2FhjKavUhHZqRW9pb/Vb+zMfjrD7FeM+E4L5x0+xp+HM5eGn5tYT0qL/AHI0ravGoTXaRiqSrulCXTf8Mf4aUVLEVKj/ACU7LvJ2/ZM9NOXyrK4YbFOvQs6GIhw1UJ32l/S9ez0OoMqCwsGpp47YYI3NK35F3f8ABESRuYiV5N82zWkjMuluk2eyMCpuTUYq7bsjosBg1Sjzk/ef8djWynDqKdWWm+1+C4s0c68QwppwhLXjLe/6V/Jd0Wlb+bHP0OJThWt0jbznNlSTp09Zteker6nCYvG2uoPak77U9/e3XqYMZmEp3S8qe/m+7NByPoqNOoIyL73bLPoXSkY2w5GOUiyQJFHIxtlZSMUpHR4WyZSMXJpJXbdkijZ0mS5b7Ne0mvM15V8K+5U12thpat8u/Jer/fZ3VU7JYRs5bglRhb8z1m+vI2pFzMcmfA2Wytm5zeWzUworCLJFjL5EhlGUSru7vGCfmlz6RO64OTxE42uTwizJsqliJ3ekIvzPn0XU7mlTUIqMVZJWS6FMPQjCKhBbMVuRkNuihVr3L1VSgvcFACclAAABUoACC8X5c69BuCvOD2482vzL5fseZqR7Ued+MPD7pSdekrwk7zS/JJ8f0s0NFcl8j/IzddQ3/wCi/Mjsnz6phnaL24P3oS3enJnZYPxjhppbe1TfWLkvmjzNTLtst2aaE3l9lOrU2VrCfHuehVs4w93arFq7tv8A2sR2Jz+ivd2p9k0vmzj9sbZSj8IoTy8sklrbH1wT2P8AEdWotiL2IpWSRCzm27t3Zi2ijmaUK4wWIrBVlJyeW8mVyLHIxuZY5nWDnJfKRZKRa5GNyOsHjLpSLN+i1MuHoTqS2YJyf0XdnSZblMaXml558+C7fcoa74lVpY/NzLyX76JaqZWPjo18oyjZtOovNvjHl1fUmJMq2WNnxGq1Vmps32P/AAvZGlGEYLCEmYmSGDyupV92OzH4nov7nTZdk9Ojr78/ia3dlwJKNLOz2R3GtyIbKvD7nadZbMd6jxffkjqYQUUoxSSSsktEXA2aqY1LES1CtR6BQAlOwAAAAAAAACpbOCkmpJNNWaaumuqKlQDz/wAR+DpQvVwqco75U+K/RzXQ4yV4tqSaa0aas16HudyIzbIsPiv8yC2uE4+WXz4+pfp1rjxPn3M6/QKXMOPY8j2htHXY/wABzjd0asZrhGa2ZfNaP6EJX8MYuH/Scv0yTL8b65dSM+Wntj3FkZtFrmbbybE/9moXwyDFP/pSXeyO3ZBcuS/U4VU391/oaDkWuRM0/DNZ+9aH1ZIYbw3GPvKU31aS+SKVvxOivrMn7J/wSx0tsvLBy9OlKbtCLk+iuTGDyFvWq9lfCnd+rOko4DZVo7EF/wA5GzDBw/NO/ZW+pk6j4nrLflphsXq+/wDRbr0KXMuSNoUYU1swiorp/PMz06M5u0Iyl2VyXo06MfyqXd3JCGMitFZdtDLj8OnJ7rJd/mXVV+RF4bw/UlrUaprlvf0JnCZPSp67O2+ctfktwjizJHEl6rSVV9L9TuNcUboNaNYvVQsEhlBaplykAAAAAAAAAAAAAAAAWssZlFgDXkjBJM3nAtdMAjZxZqziyadEseHQBz1SEjUqUp8LnUvCoseDXI9yeHHzw9Xg2Y1hqvM7J4Jciv4Jcj3IwcnToVOLZt06U+p0Kwa5FywiGQQ9OEjahBkisKi5UDwGpCLM8EzOqRcoHh6Y4ovSL1ErYAIAAAAAAAAAAAAAAAAAAAAFQUABUFAAVBQAFQUABUFAAAAAAAAAAAAAAAVAB//Z"
+            id="logo"
+          />
+        </li>
+        <li>
+          <a class="item" href="#">Blog</a>
+        </li>
+
+        <li>
+          <a class="item" href="#">Contact</a>
+        </li>
+      </ul>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
